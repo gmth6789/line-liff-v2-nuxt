@@ -1,3 +1,7 @@
+import colors from 'vuetify/es5/util/colors'
+
+
+
 export default {
   head: {
     title: 'LIFF Starter',
@@ -11,9 +15,15 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap'},
+      { rel: 'stylesheet', href:'https://fonts.googleapis.com/icon?family=Material+Icons'}
+    ],
+    script: [
+      { src: 'https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js' }
     ]
   },
+
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -29,11 +39,39 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://go.nuxtjs.dev/vuetify
+    '@nuxtjs/vuetify',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
   ],
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: '/',
+  },
+
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: false,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -1,4 +1,4 @@
-/ This function is executed before instantiating the app
+// This function is executed before instantiating the app
 // only in client-side.
 // document: https://nuxtjs.org/docs/2.x/directory-structure/plugins 
 
